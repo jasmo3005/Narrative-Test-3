@@ -31,7 +31,6 @@ let currentScene = 1;    // 1 or 2
 
 let amplitude; // For sound level in scene 2
 let font;      // For custom font in scene 2
-let medievalFont; // Add this at the top with your other global variables
 
 let achievements = [];
 let showAchievements = false;
@@ -46,7 +45,6 @@ function preload() {
     () => console.log('sound loaded'),
     (e) => console.error('sound load error', e)
   );
-  medievalFont = loadFont('assets/medieval.ttf');
   orb1Img = loadImage('assets/orb1.png'); // Preload orb1 image
 }
 
@@ -69,7 +67,7 @@ class Particle {
 }
 
 function setup() {
-  const side = min(windowWidth, windowHeight) * 0.8; // 90% of available space
+  const side = min(windowWidth, windowHeight) * 0.8; // 80% of available space
   const c = createCanvas(side, side); // Square canvas
   c.parent('sketch');
   textAlign(CENTER, CENTER);
@@ -330,9 +328,6 @@ function drawAchievementsOverlay() {
     image(achievementsImg, 0, 0, width, height); // Use dynamic width/height
   } else {
     background(30, 180);
-  }
-  if (medievalFont) {
-    textFont(medievalFont);
   }
   fill(255);
   textStyle(BOLD);
